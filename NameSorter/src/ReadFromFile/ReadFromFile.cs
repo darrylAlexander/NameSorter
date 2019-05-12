@@ -6,18 +6,13 @@ namespace NameSorter.src.ReadFromFile
 {
     public class ReadFromFile
     {
-        public ReadFromFile(string pathToFile)
-        {
-            _pathToFile = pathToFile;
-        }
-
-        public List<string> OpenAndReadFileContents()
+        public static List<string> OpenAndReadFileContents(string pathToFile)
         {
             var listOfLineContents = new List<string>();
 
             try
             {
-                using (StreamReader sr = new StreamReader(_pathToFile))
+                using (StreamReader sr = new StreamReader(pathToFile))
                 {
                     String line;
                     while ((line = sr.ReadLine()) != null)
@@ -26,18 +21,12 @@ namespace NameSorter.src.ReadFromFile
                     }
                 }
             }
-            catch (IOException e)
+            catch (IOException)
             {
-                listOfLineContents.Add("The file could not be read: " + e.Message);
+                listOfLineContents.Add("The file could not be read.");
             }
 
             return listOfLineContents;
         }
-
-        // Properties
-        public string PathToFile { get; set; }
-
-        // Fields
-        private readonly string _pathToFile;
     }
 }
