@@ -1,4 +1,5 @@
-﻿using NameSorter.src.ReadFromFile;
+﻿using NameSorter.src.Models;
+using NameSorter.src.ReadFromFile;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,10 +12,10 @@ namespace NameSorter
         {
             Console.WriteLine("Please enter the location of the file to read from.");
             var pathToFile = Console.ReadLine();
-            List<string> linesFromFile = ReadFromFile.OpenAndReadFileContents(pathToFile);
-            foreach (var line in linesFromFile)
+            IList<Name> namesFromFile = ReadFromFile.OpenAndReadFileContents(pathToFile);
+            foreach (var name in namesFromFile)
             {
-                Console.WriteLine(line);
+                Console.WriteLine(name.ToString());
                 Console.ReadLine();
             }
         }
