@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace NameSorter.src.OrderNames
 {
-    interface IOrderNames
+    public interface IOrderNames
     {
         List<Name> OrderByLastName(List<Name> names);
-
-        List<Name> OrderByGivenNames(List<Name> names);
     }
 }
