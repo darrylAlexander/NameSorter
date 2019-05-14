@@ -2,24 +2,30 @@
 {
     public class Name
     {
-        public Name(string firstName, string lastName = "", string middleName = "")
+        public Name(string givenName1, string lastName = null, string givenName2 = null, string givenName3 = null)
         {
-            _firstName = firstName;
-            _middleName = middleName;
+            _givenName1 = givenName1;
+            _givenName2 = givenName2;
+            _givenName3 = givenName3;
             _lastName = lastName;
         }
 
         // Methods
         public override string ToString()
         {
-            string fullname = FirstName;
+            string fullname = GivenName1;
 
-            if (MiddleName != "")
+            if (GivenName2 != null)
             {
-                fullname += " " + MiddleName;
+                fullname += " " + GivenName2;
             }
 
-            if (LastName != "")
+            if (GivenName3 != null)
+            {
+                fullname += " " + GivenName3;
+            }
+
+            if (LastName != null)
             {
                 fullname += " " + LastName;
             }
@@ -27,18 +33,25 @@
         }
 
         // Properties
-        public string FirstName
+        public string GivenName1
         {
             get
             {
-                return _firstName;
+                return _givenName1;
             }
         }
-        public string MiddleName
+        public string GivenName2
         {
             get
             {
-                return _middleName;
+                return _givenName2;
+            }
+        }
+        public string GivenName3
+        {
+            get
+            {
+                return _givenName3;
             }
         }
         public string LastName
@@ -50,8 +63,9 @@
         }
 
         // Fields
-        private readonly string _firstName;
-        private readonly string _middleName;
+        private readonly string _givenName1;
+        private readonly string _givenName2;
+        private readonly string _givenName3;
         private readonly string _lastName;
     }
 }

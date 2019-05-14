@@ -18,7 +18,7 @@ namespace NameSorter.tests.ReadFromFile
             var actual = systemUnderTest[0];
 
             // Act
-            Assert.Equal(expected, actual.FirstName);
+            Assert.Equal(expected, actual.GivenName1);
         }
 
         [Fact]

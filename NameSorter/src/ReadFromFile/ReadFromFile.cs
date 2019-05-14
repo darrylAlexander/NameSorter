@@ -22,15 +22,19 @@ namespace NameSorter.src.ReadFromFile
                         var splitUpNames = line.Split(" ");
                         if (splitUpNames.Length == 1)
                         {
-                            name = new Name(splitUpNames[0]);
+                            name = new Name(splitUpNames[splitUpNames.Length - 1]);
                         }
                         else if (splitUpNames.Length == 2)
                         {
-                            name = new Name(splitUpNames[0], splitUpNames[1]);
+                            name = new Name(splitUpNames[0], splitUpNames[splitUpNames.Length - 1]);
+                        }
+                        else if (splitUpNames.Length == 3)
+                        {
+                            name = new Name(splitUpNames[0], splitUpNames[splitUpNames.Length - 1], splitUpNames[1]);
                         }
                         else
                         {
-                            name = new Name(splitUpNames[0], splitUpNames[2], splitUpNames[1]);
+                            name = new Name(splitUpNames[0], splitUpNames[splitUpNames.Length - 1], splitUpNames[1], splitUpNames[2]);
                         }
                         listOfLineContents.Add(name);
                     }

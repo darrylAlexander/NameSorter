@@ -33,39 +33,43 @@ namespace NameSorter.src.OrderNames
         {
             names.Sort(delegate (Name x, Name y)
             {
-                if (x.FirstName == null && y.FirstName == null)
+                if (x.GivenName1 == null && y.GivenName1 == null)
                 {
-                    if (x.MiddleName == null && y.MiddleName == null)
+                    if (x.GivenName2 == null && y.GivenName2 == null)
                     {
                         return 0;
                     }
-                    else if (x.MiddleName == null)
+                    else if (x.GivenName2 == null)
                     {
                         return -1;
                     }
-                    else if (y.MiddleName == null)
+                    else if (y.GivenName2 == null)
                     {
                         return 1;
                     }
                     else
                     {
-                        return x.MiddleName.CompareTo(y.MiddleName);
+                        return x.GivenName2.CompareTo(y.GivenName2);
                     }
                 }
-                else if (x.FirstName == null)
+                else if (x.GivenName1 == null)
                 {
                     return -1;
                 }
-                else if (y.FirstName == null)
+                else if (y.GivenName1 == null)
                 {
                     return 1;
                 }
                 else
                 {
-                    var comparisonOrder = x.FirstName.CompareTo(y.FirstName);
+                    var comparisonOrder = x.GivenName1.CompareTo(y.GivenName1);
                     if ( comparisonOrder == 0)
                     {
-                        comparisonOrder = x.MiddleName.CompareTo(y.MiddleName);
+                        comparisonOrder = x.GivenName2.CompareTo(y.GivenName2);
+                        if (comparisonOrder == 0)
+                        {
+                            comparisonOrder = x.GivenName3.CompareTo(y.GivenName3);
+                        }
                     }
 
                     return comparisonOrder;
