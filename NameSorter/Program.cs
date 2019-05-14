@@ -10,24 +10,18 @@ namespace NameSorter
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Please enter the location of the file to read from.");
-            var pathToFile = Console.ReadLine();
-
-            List<Name> namesFromFile = ReadFromFile.OpenAndReadFileContents(pathToFile);
-            foreach (var name in namesFromFile)
+            if (args.Length == 0)
             {
-                Console.WriteLine(name.ToString());
+                Console.WriteLine("Please pass the path of the file to read from.");
+                return;
             }
 
-            Console.WriteLine();
-
+            List<Name> namesFromFile = ReadFromFile.OpenAndReadFileContents(args[0]);
             List<Name> namesSortedByLastName = new OrderNames().OrderByLastName(namesFromFile);
             foreach (var name in namesSortedByLastName)
             {
                 Console.WriteLine(name.ToString());
             }
-
-            Console.ReadLine();
         }
     }
 }
