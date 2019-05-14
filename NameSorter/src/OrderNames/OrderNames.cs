@@ -5,7 +5,7 @@ namespace NameSorter.src.OrderNames
 {
     public class OrderNames: IOrderNames
     {
-        public IList<Name> OrderByLastName(List<Name> names)
+        public List<Name> OrderByLastName(List<Name> names)
         {
             names.Sort(delegate (Name x, Name y)
             {
@@ -17,7 +17,7 @@ namespace NameSorter.src.OrderNames
             return names;
         }
 
-        public IList<Name> OrderByGivenNames(List<Name> names)
+        public List<Name> OrderByGivenNames(List<Name> names)
         {
             throw new System.NotImplementedException();
         }

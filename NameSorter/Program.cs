@@ -21,7 +21,7 @@ namespace NameSorter
 
             Console.WriteLine();
 
-            var namesSortedByLastName = new OrderNames().OrderByLastName(namesFromFile);
+            List<Name> namesSortedByLastName = new OrderNames().OrderByLastName(namesFromFile);
             foreach (var name in namesSortedByLastName)
             {
                 Console.WriteLine(name.ToString());
