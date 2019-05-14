@@ -11,17 +11,15 @@ namespace NameSorter.tests.ReadFromFile
         public void ReturnListOfLineContents()
         {
             // Arrange
-            var expected = new Name("testFirstName");
-            File.AppendAllText(_pathToTestFile, "testFirstName");
+            var expected = "testFirstName";
+            File.AppendAllText(_pathToTestFile, expected);
 
             // Assert
             var listOfFileContents = src.ReadFromFile.ReadFromFile.OpenAndReadFileContents(_pathToTestFile);
             var actual = listOfFileContents[0];
 
             // Act
-            Assert.Equal(expected.FirstName, actual.FirstName);
-            Assert.Equal(expected.MiddleName, actual.MiddleName);
-            Assert.Equal(expected.LastName, actual.LastName);
+            Assert.Equal(expected, actual.FirstName);
         }
 
         [Fact]

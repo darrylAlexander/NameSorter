@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NameSorter.src.Models
+﻿namespace NameSorter.src.Models
 {
     public class Name
     {
@@ -14,9 +10,42 @@ namespace NameSorter.src.Models
         }
 
         // Properties
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+        }
+        public string MiddleName
+        {
+            get
+            {
+                return _middleName;
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+        }
+        public override string ToString()
+        {
+            string fullname = FirstName;
+
+            if (MiddleName != null)
+            {
+                fullname += " " + MiddleName;
+            }
+
+            if (LastName != null)
+            {
+                fullname += " " + LastName;
+            }
+            return fullname;
+        }
 
         // Fields
         private readonly string _firstName;

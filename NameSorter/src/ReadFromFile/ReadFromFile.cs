@@ -15,7 +15,7 @@ namespace NameSorter.src.ReadFromFile
             {
                 using (StreamReader sr = new StreamReader(pathToFile))
                 {
-                    String line;
+                    string line;
                     Name name;
                     while ((line = sr.ReadLine()) != null)
                     {
