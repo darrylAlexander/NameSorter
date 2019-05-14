@@ -6,7 +6,7 @@ namespace NameSorter.tests.OrderNames
 {
     public class OrderNames_Should
     {
-        [Fact]
+        [Fact(DisplayName = "Return a list of names ordered by last name")]
         public void ReturnAListOrderedByLastName()
         {
             // Arrange
@@ -26,7 +26,7 @@ namespace NameSorter.tests.OrderNames
             Assert.Equal(0, actual);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Return a list of names ordered by first given name")]
         public void ReturnAListOrderedByGivenName1()
         {
             // Arrange
@@ -46,7 +46,7 @@ namespace NameSorter.tests.OrderNames
             Assert.Equal(0, actual);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Return a list of names ordered by second given name when first name is the same")]
         public void SortByGivenName2_WhenGivenName1IsTheSame()
         {
             // Arrange
@@ -66,7 +66,7 @@ namespace NameSorter.tests.OrderNames
             Assert.Equal(0, actual);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Return a list of names ordered by third given name when first and second names are the same")]
         public void SortByGivenName3_WhenGivenName1AndGivenName2AreTheSame()
         {
             // Arrange

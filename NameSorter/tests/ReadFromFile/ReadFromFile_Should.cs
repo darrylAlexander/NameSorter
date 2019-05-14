@@ -6,12 +6,12 @@ namespace NameSorter.tests.ReadFromFile
 {
     public class ReadFromFile_Should : IDisposable
     {
-        [Fact]
+        [Fact(DisplayName = "Return a list of names from line contents of file")]
         public void ReturnListOfLineContents()
         {
             // Arrange
             var expected = "testFirstName";
-            File.AppendAllText(_pathToTestFile, expected);
+            File.WriteAllText(_pathToTestFile, expected);
 
             // Assert
             var systemUnderTest = src.ReadFromFile.ReadFromFile.OpenAndReadFileContents(_pathToTestFile);
@@ -21,7 +21,7 @@ namespace NameSorter.tests.ReadFromFile
             Assert.Equal(expected, actual.GivenName1);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Return an empty list when file is not found")]
         public void ReturnEmptyList_WhenFileDoesNotExist()
         {
             // Arrange
