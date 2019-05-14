@@ -7,7 +7,7 @@ namespace NameSorter.src.ReadFromFile
 {
     public class ReadFromFile
     {
-        public static IList<Name> OpenAndReadFileContents(string pathToFile)
+        public static List<Name> OpenAndReadFileContents(string pathToFile)
         {
             var listOfLineContents = new List<Name>();
 

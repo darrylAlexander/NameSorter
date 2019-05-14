@@ -1,5 +1,4 @@
-﻿using NameSorter.src.Models;
-using System;
+﻿using System;
 using System.IO;
 using Xunit;
 
@@ -15,8 +14,8 @@ namespace NameSorter.tests.ReadFromFile
             File.AppendAllText(_pathToTestFile, expected);
 
             // Assert
-            var listOfFileContents = src.ReadFromFile.ReadFromFile.OpenAndReadFileContents(_pathToTestFile);
-            var actual = listOfFileContents[0];
+            var systemUnderTest = src.ReadFromFile.ReadFromFile.OpenAndReadFileContents(_pathToTestFile);
+            var actual = systemUnderTest[0];
 
             // Act
             Assert.Equal(expected, actual.FirstName);

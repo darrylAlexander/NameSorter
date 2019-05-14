@@ -9,6 +9,23 @@
             _lastName = lastName;
         }
 
+        // Methods
+        public override string ToString()
+        {
+            string fullname = FirstName;
+
+            if (MiddleName != "")
+            {
+                fullname += " " + MiddleName;
+            }
+
+            if (LastName != "")
+            {
+                fullname += " " + LastName;
+            }
+            return fullname;
+        }
+
         // Properties
         public string FirstName
         {
@@ -30,21 +47,6 @@
             {
                 return _lastName;
             }
-        }
-        public override string ToString()
-        {
-            string fullname = FirstName;
-
-            if (MiddleName != null)
-            {
-                fullname += " " + MiddleName;
-            }
-
-            if (LastName != null)
-            {
-                fullname += " " + LastName;
-            }
-            return fullname;
         }
 
         // Fields
