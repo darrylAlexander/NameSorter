@@ -4,7 +4,7 @@ using Xunit;
 
 namespace NameSorter.tests.OrderNames
 {
-    public class OrderNames_Should
+    public sealed class OrderNames_Should
     {
         [Fact(DisplayName = "Return a list of names ordered by last name")]
         public void ReturnAListOrderedByLastName()
@@ -79,7 +79,7 @@ namespace NameSorter.tests.OrderNames
             names.Add(lastNameBeginningWithA);
 
             // Act
-            var systemUnderTest = nameSorter.OrderByGivenNames(names);
+            var systemUnderTest = nameSorter.OrderByLastName(names);
             var actual = systemUnderTest.IndexOf(lastNameBeginningWithA);
 
             // Assert

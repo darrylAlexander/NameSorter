@@ -4,7 +4,7 @@ using Xunit;
 
 namespace NameSorter.tests.ReadFromFile
 {
-    public class ReadFromFile_Should : IDisposable
+    public sealed class ReadFromFile_Should : IDisposable
     {
         [Fact(DisplayName = "Return a list of names from line contents of file")]
         public void ReturnListOfLineContents()
