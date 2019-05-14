@@ -11,7 +11,16 @@ namespace NameSorter.src.OrderNames
             {
                 if (x.LastName == null && y.LastName == null)
                 {
-                    return 0;
+                    var comparisonOrder = x.GivenName1.CompareTo(y.GivenName1);
+                    if (comparisonOrder == 0)
+                    {
+                        comparisonOrder = x.GivenName2.CompareTo(y.GivenName2);
+                        if (comparisonOrder == 0)
+                        {
+                            comparisonOrder = x.GivenName3.CompareTo(y.GivenName3);
+                        }
+                    }
+                    return comparisonOrder;
                 }
                 else if (x.LastName == null)
                 {
@@ -23,7 +32,12 @@ namespace NameSorter.src.OrderNames
                 }
                 else
                 {
-                    return x.LastName.CompareTo(y.LastName);
+                    var comparisonOrder = x.LastName.CompareTo(y.LastName);
+                    if (comparisonOrder == 0)
+                    {
+                        comparisonOrder = x.GivenName1.CompareTo(y.GivenName1);
+                    }
+                    return comparisonOrder;
                 }
             });
             return names;

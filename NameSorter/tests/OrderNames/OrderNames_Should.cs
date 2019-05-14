@@ -31,15 +31,35 @@ namespace NameSorter.tests.OrderNames
         {
             // Arrange
             var nameSorter = new src.OrderNames.OrderNames();
-            var lastNameBeginningWithB = new Name("Bob", "Bananas");
-            var lastNameBeginningWithA = new Name("Alice", "Apple");
+            var lastNameBeginningWithB = new Name("Bob", null);
+            var lastNameBeginningWithA = new Name("Alice", null);
 
             var names = new List<Name>();
             names.Add(lastNameBeginningWithB);
             names.Add(lastNameBeginningWithA);
 
             // Act
-            var systemUnderTest = nameSorter.OrderByGivenNames(names);
+            var systemUnderTest = nameSorter.OrderByLastName(names);
+            var actual = systemUnderTest.IndexOf(lastNameBeginningWithA);
+
+            // Assert
+            Assert.Equal(0, actual);
+        }
+
+        [Fact(DisplayName = "Return a list of names ordered by first given name when last name is the same")]
+        public void ReturnAListOrderedByGivenName1_WhenLastNameIsTheSame()
+        {
+            // Arrange
+            var nameSorter = new src.OrderNames.OrderNames();
+            var lastNameBeginningWithB = new Name("Bob", "Jones");
+            var lastNameBeginningWithA = new Name("Alice", "Jones");
+
+            var names = new List<Name>();
+            names.Add(lastNameBeginningWithB);
+            names.Add(lastNameBeginningWithA);
+
+            // Act
+            var systemUnderTest = nameSorter.OrderByLastName(names);
             var actual = systemUnderTest.IndexOf(lastNameBeginningWithA);
 
             // Assert
@@ -79,7 +99,7 @@ namespace NameSorter.tests.OrderNames
             names.Add(lastNameBeginningWithA);
 
             // Act
-            var systemUnderTest = nameSorter.OrderByGivenNames(names);
+            var systemUnderTest = nameSorter.OrderByLastName(names);
             var actual = systemUnderTest.IndexOf(lastNameBeginningWithA);
 
             // Assert
